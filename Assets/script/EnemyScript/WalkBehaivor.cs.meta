@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 23cc7848cb799b042a48fbd5481081bd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Slime: {fileID: 6678773549129746141, guid: 36efb16dcd14e764093a9c568aae7152, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
