@@ -11,9 +11,12 @@ public class DamageScript : MonoBehaviour
         Slime = GameObject.FindGameObjectWithTag("Slime");
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-         PlayerManager.TakeDamage(Slime.GetComponent<SlimeScript>().SlimeDamage);
-
+        if(collider.tag == "Player")
+        {
+            PlayerManager.TakeDamage(Slime.GetComponent<SlimeScript>().SlimeDamage);
+        }
     }
+
 }

@@ -15,6 +15,8 @@ public class Look : MonoBehaviour
     public float ySens = 70f;
     //public float maxAngle;
 
+    
+
     Quaternion Center;
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,7 @@ public class Look : MonoBehaviour
 
         setY();
         setX();
+
     }
     void setY()
     {
@@ -62,4 +65,6 @@ public class Look : MonoBehaviour
 
         player.localRotation = xRot;
     }
+
+    
 }

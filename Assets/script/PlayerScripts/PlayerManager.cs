@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
-    public static int PlayerHealth;
+    public static float PlayerHealth;
     public static bool GameOver;
     public TextMeshProUGUI PlayerHealthText;
 
@@ -27,7 +27,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public static void TakeDamage(int damage)
+    public static void TakeDamage(float damage)
     {
         PlayerHealth -= damage;
 

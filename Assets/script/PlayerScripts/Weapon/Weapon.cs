@@ -6,5 +6,7 @@ using UnityEngine;
 
 public class Weapon : ScriptableObject
 {
-    public int Damage;
+    public float Damage;
+    public int BaseAmmo;
+
 }

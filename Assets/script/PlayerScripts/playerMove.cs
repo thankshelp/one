@@ -21,6 +21,8 @@ public class playerMove : MonoBehaviour
     public float SprintFOV = 1.25f;
 
     public bool jump = false;
+    public bool sprint = false;
+    public Vector3 movement;
 
 
 
@@ -50,7 +52,7 @@ public class playerMove : MonoBehaviour
             
         }
     
-        bool sprint = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+        sprint = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
        
         if (sprint == true && moveVertical > 0)
         {
@@ -66,7 +68,7 @@ public class playerMove : MonoBehaviour
             cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, baseFOV, Time.fixedDeltaTime * 8f);
         }
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         movement.Normalize();
 
        

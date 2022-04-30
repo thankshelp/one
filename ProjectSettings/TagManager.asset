@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Slime
   - Sword
+  - Pistol
+  - Head
+  - SlimeHead
   layers:
   - Default
   - TransparentFX
