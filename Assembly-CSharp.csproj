@@ -54,6 +54,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\script\PlayerScripts\Weapon\PistolScript.cs" />
+    <Compile Include="Assets\script\PlayerScripts\Weapon\GenericGun.cs" />
+    <Compile Include="Assets\script\GlobalStatistic.cs" />
     <Compile Include="Assets\EnemyAnimation\idleBehaivor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\EnemyAnimation\HitBehaviour.cs" />
+    <Compile Include="Assets\script\PlayerScripts\Weapon\ShotgunScript.cs" />
     <Compile Include="Assets\script\RoomScripts\roomPlacer.cs" />
     <Compile Include="Assets\script\DamageScript.cs" />
     <Compile Include="Assets\script\PlayerScripts\Weapon\WeaponSwitch.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\script\PlayerScripts\Weapon\SwordScript.cs" />
     <Compile Include="Assets\EnemyAnimation\ChaseBehaivor.cs" />
+    <Compile Include="Assets\script\RoomScripts\Spawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\MobilityArts\SciFiHandGun\Scripts\OrbitAroundTarget.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
@@ -106,6 +110,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\script\RoomScripts\DoorScript.cs" />
+    <Compile Include="Assets\script\RoomScripts\DoorLock.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

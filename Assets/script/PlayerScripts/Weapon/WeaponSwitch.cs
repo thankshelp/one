@@ -94,12 +94,14 @@ public class WeaponSwitch : MonoBehaviour
             {
                 
                 weapon.gameObject.SetActive(true);
+                weapon.gameObject.GetComponent<GenericGun>().isTaken = true;
                
             }
             else
             {
                 
                 weapon.gameObject.SetActive(false);
+                weapon.gameObject.GetComponent<GenericGun>().isTaken = false;
             }
             i++;
         }

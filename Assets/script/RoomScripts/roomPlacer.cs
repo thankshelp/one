@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class roomPlacer : MonoBehaviour
 {
-    public Transform Player;
+   
     public Room[] RoomPrefabs;
     public Room StartRoom;
+    public Room BossRoom;
 
     private Room[,] spawnedRooms;
+    Room newRoom;
+    int roomCount;
 
     //private List<Room> spawndRooms = new List<Room>();
 
@@ -18,14 +21,27 @@ public class roomPlacer : MonoBehaviour
         spawnedRooms = new Room[11,11];
         spawnedRooms[5, 5] = StartRoom;
 
-        for (int i = 0; i < 12; i++)
+        for (roomCount = 0; roomCount <= 12; roomCount++)
         {
             PlaceOneRoom();
+            
             yield return new WaitForSecondsRealtime(0.5f);
         }
     }
 
-   
+    //private void Update()
+    //{
+    //    if (GlobalStatistic.EnemyCount == 0)
+    //    {
+    //        if(roomCount > 0)
+    //        {
+    //            PlaceOneRoom();
+    //            roomCount--;
+    //        }
+    //    }
+    //}
+
+
     void PlaceOneRoom()
     {
         HashSet<Vector2Int> vacantPlace = new HashSet<Vector2Int>();
@@ -46,7 +62,14 @@ public class roomPlacer : MonoBehaviour
             }
         }
 
-        Room newRoom = Instantiate(RoomPrefabs[Random.Range(0, RoomPrefabs.Length)]);
+        if (roomCount < 12)
+        {
+            newRoom = Instantiate(RoomPrefabs[Random.Range(0, RoomPrefabs.Length)]);
+        }
+        else if(roomCount == 12)
+        {
+            newRoom = Instantiate(BossRoom);
+        }
 
         int Limit = 500;
         while (Limit-- > 0)
@@ -54,13 +77,13 @@ public class roomPlacer : MonoBehaviour
             Vector2Int position = vacantPlace.ElementAt(Random.Range(0, vacantPlace.Count));
 
             newRoom.RotateRandom();
-            if( ConnectToSomething(newRoom, position)) 
+
+            if (ConnectToSomething(newRoom, position))
             {
                 newRoom.transform.position = new Vector3((position.x - 5) * 10, 0, (position.y - 5) * 10);
                 spawnedRooms[position.x, position.y] = newRoom;
                 return;
             }
-            
         }
         Destroy(newRoom.gameObject);
     }
@@ -75,6 +98,8 @@ public class roomPlacer : MonoBehaviour
         if (room.doorD != null && p.y > 0 && spawnedRooms[p.x, p.y - 1]?.doorU != null) neighbours.Add(Vector2Int.down);
         if (room.doorR != null && p.x < maxX && spawnedRooms[p.x + 1, p.y]?.doorL != null) neighbours.Add(Vector2Int.right);
         if (room.doorL != null && p.x > 0 && spawnedRooms[p.x - 1, p.y]?.doorR != null) neighbours.Add(Vector2Int.left);
+
+        
 
         if (neighbours.Count == 0) return false;
 

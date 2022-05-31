@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordScript : MonoBehaviour
+public class SwordScript : GenericGun
 {
     public Weapon weapon;
     private Animator anim;

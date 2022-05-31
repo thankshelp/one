@@ -9,7 +9,7 @@ public class SlimeScript : MonoBehaviour
     public Vector3 positionSlime;
     public float SlimeHealth = 30f;
     public float SlimeDamage = 10f;
-    public SwordScript sword;
+    //public SwordScript sword;
 
     public bool attaked = false;
     public bool death = false;
@@ -19,6 +19,7 @@ public class SlimeScript : MonoBehaviour
     {
        //sword = GameObject.FindGameObjectWithTag("Sword").transform;
         positionSlime = this.transform.position;
+        
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class SlimeScript : MonoBehaviour
     {
         if(collider.tag == "Sword")
         {
-            sword = collider.gameObject.GetComponent<SwordScript>();
+            SwordScript sword = collider.gameObject.GetComponent<SwordScript>();
             Hit(sword.weapon.Damage);
         }
     }
@@ -41,6 +42,7 @@ public class SlimeScript : MonoBehaviour
         if (SlimeHealth <= 0)
         {
             death = true;
+            GlobalStatistic.EnemyCount--;
         }
     }
 
