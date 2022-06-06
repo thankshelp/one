@@ -11,8 +11,10 @@ public class ShotgunScript : GenericGun
     Animator anim;
 
     int currentAmmo;
-    public float min_inaccurate = -0.5f;
-    public float max_inaccurate = 0.5f;
+    
+    public int max_inaccurate = 6;
+    public int min_inaccurate = -6;
+
 
     public float range = 500f;
     public float fireRate = 0.1f;
@@ -68,28 +70,38 @@ public class ShotgunScript : GenericGun
         for(int rey_count = 4; rey_count>= 0; rey_count--)
         {
             
+            //line = lineObject[rey_count].GetComponent<LineRenderer>();
+            //line.startWidth = 0.1f;
+            //line.endWidth = 0.1f;
 
-            line = lineObject[rey_count].GetComponent<LineRenderer>();
-            line.startWidth = 0.1f;
-            line.endWidth = 0.1f;
-            
+            //line.SetPosition(0, FirePoint.transform.position);
+
             RaycastHit hit;
 
             FirePoint.transform.localRotation = Quaternion.identity;
 
             FirePoint.transform.localRotation = Quaternion.Euler(
-                FirePoint.transform.localRotation.x + Random.Range(min_inaccurate, max_inaccurate), 
-                FirePoint.transform.localRotation.y + Random.Range(min_inaccurate, max_inaccurate), 
+                FirePoint.transform.localRotation.x + Random.Range(min_inaccurate, max_inaccurate),
+                FirePoint.transform.localRotation.y + Random.Range(min_inaccurate, max_inaccurate),
                 FirePoint.transform.localRotation.z + Random.Range(min_inaccurate, max_inaccurate));
 
-            Debug.Log(FirePoint.transform.localRotation);
+           
 
             Vector3 fwd = FirePoint.transform.TransformDirection(Vector3.forward);
 
-            
+            Debug.Log(fwd);
 
-            line.SetPosition(0, FirePoint.transform.position);
-            line.SetPosition(1, fwd);
+            //Vector3 fwd; //= FirePoint.transform.position;
+
+
+            //Vector3 rnd = (Vector3)Random.insideUnitCircle * max_inaccurate + FirePoint.transform.position;
+
+            //fwd.x = FirePoint.transform.localRotation.x + rnd.x;
+            //fwd.y = FirePoint.transform.localRotation.y + rnd.y;
+            //fwd.z = FirePoint.transform.localRotation.z + rnd.z;
+
+            //FirePoint.transform.T
+
 
             //fwd.x = fwd.x + Random.Range(min_inaccurate, max_inaccurate);
             //fwd.y = fwd.y + Random.Range(min_inaccurate, max_inaccurate);
@@ -97,9 +109,9 @@ public class ShotgunScript : GenericGun
 
             if (Physics.Raycast(cam.transform.position, fwd, out hit, range))
             {
-                Debug.Log(hit.transform.tag);
+                Debug.Log(hit.transform.name);
 
-                
+                //line.SetPosition(1, hit.transform.position);
 
                 //Instantiate(point, hit.transform.position, Quaternion.identity);
 

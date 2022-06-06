@@ -208,7 +208,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d357a802e5ef4d44d829d89dfb1a341c, type: 2}
+  - {fileID: 2100000, guid: 18827bbf9f5f044449b7145738a13905, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -463,7 +463,6 @@ MonoBehaviour:
   positionSlime: {x: 0, y: 0, z: 0}
   SlimeHealth: 30
   SlimeDamage: 10
-  sword: {fileID: 0}
   attaked: 0
   death: 0
 --- !u!136 &8610093638270476134

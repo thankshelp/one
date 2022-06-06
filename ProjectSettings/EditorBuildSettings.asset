@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/LowPolyDungeonsLite/Scenes/Menu.unity
+    guid: f84a50dce7f7a9a408b1b750c97191e6
+  - enabled: 1
+    path: Assets/LowPolyDungeonsLite/Scenes/Loading.unity
+    guid: b0fddca06b397ea4bac3c46423944e9d
+  - enabled: 1
+    path: Assets/LowPolyDungeonsLite/Scenes/rooms.unity
+    guid: 52222c0f6d0e0bb43929e0b71f32826c
   m_configObjects: {}
