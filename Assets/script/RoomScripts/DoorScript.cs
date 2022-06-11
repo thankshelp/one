@@ -22,6 +22,7 @@ public class DoorScript : DoorLock
             {
                 if (!isLock)
                 {
+                    //анимация двери
 
                 }
             }

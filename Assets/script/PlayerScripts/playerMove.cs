@@ -42,6 +42,7 @@ public class playerMove : MonoBehaviour
         float moveVertical = Input.GetAxisRaw("Vertical");
 
         bool groundCheck = Physics.Raycast(groundDetector.position, Vector3.down, 0.1f, Ground);
+        
         jump = Input.GetKey(KeyCode.Space) && groundCheck;
 
 

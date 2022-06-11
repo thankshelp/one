@@ -37,6 +37,8 @@ public class SlimeScript : MonoBehaviour
         SlimeHealth -= damage;
         attaked = true;
 
+        FindObjectOfType<AudioManager>().Play("SlimeHit");
+
         Debug.Log(SlimeHealth);
 
         if (SlimeHealth <= 0)
@@ -50,6 +52,8 @@ public class SlimeScript : MonoBehaviour
     {
         SlimeHealth -= (damage + damage / 2);
         attaked = true;
+
+        FindObjectOfType<AudioManager>().Play("SlimeHit");
 
         Debug.Log(SlimeHealth);
 

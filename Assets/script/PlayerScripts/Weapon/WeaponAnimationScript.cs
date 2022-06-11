@@ -11,8 +11,10 @@ public class WeaponAnimationScript : MonoBehaviour
     public GameObject player;
 
     public int curAmmo, baseAmmo;
+    public string reload;
 
     public TextMeshProUGUI ammo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +56,7 @@ public class WeaponAnimationScript : MonoBehaviour
             if (curAmmo == 0)
             {
                 anim.SetInteger("State", 5);
+                FindObjectOfType<AudioManager>().Play(reload);
             }
             else
             {
@@ -69,6 +72,8 @@ public class WeaponAnimationScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && curAmmo < baseAmmo)
         {
             anim.SetInteger("State", 5);
+           
+            FindObjectOfType<AudioManager>().Play(reload);
         }
         else if (Input.GetKeyUp(KeyCode.R))
         {

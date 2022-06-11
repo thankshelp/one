@@ -39,6 +39,7 @@ public class ChaseBehaivor : StateMachineBehaviour
         if (distance > ChaseRange)
         {
             animator.SetBool("isChasing", false);
+           
 
         }
 

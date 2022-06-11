@@ -5,6 +5,7 @@ using UnityEngine;
 public class Look : MonoBehaviour
 {
     public static bool cursorLock = true;
+    public GameObject menu;
 
     public Transform player;
     public Transform cam;
@@ -31,15 +32,15 @@ public class Look : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            if (Input.GetKeyDown(KeyCode.Escape))
-                cursorLock = false;
+            //if (Input.GetKeyDown(KeyCode.Escape))
+            //    cursorLock = false;
         }
         else
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            if (Input.GetKeyDown(KeyCode.Escape))
-                cursorLock = true;
+            //if (Input.GetKeyDown(KeyCode.Escape))
+            //    cursorLock = true;
         }
 
         setY();

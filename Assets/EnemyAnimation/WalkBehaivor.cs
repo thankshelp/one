@@ -50,6 +50,7 @@ public class WalkBehaivor : StateMachineBehaviour
         if (distance < ChaseRange)
         {
             animator.SetBool("isChasing", true);
+            
 
         }
 

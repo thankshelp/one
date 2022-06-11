@@ -7,6 +7,12 @@ public class PistolScript : GenericGun
 {
     public Weapon pistol;
     public Camera cam;
+    public ParticleSystem shoot_part;
+    public ParticleSystem hit_slime;
+    public ParticleSystem hit_tree;
+    public ParticleSystem hit_stone;
+    public ParticleSystem hit_metal;
+    public ParticleSystem hit_earth;
 
     Animator anim;
 
@@ -29,12 +35,13 @@ public class PistolScript : GenericGun
     {
         if (isTaken)
         {
+            GetComponent<WeaponAnimationScript>().reload = "PistolReload";
+
             if ((anim.GetInteger("State") == 4) && (Time.time >= nextShot) && (currentAmmo > 0))
             {
                 nextShot = Time.time + 1 / fireRate;
                 currentAmmo--;
                 GetComponent<WeaponAnimationScript>().curAmmo = currentAmmo;
-                Debug.Log("pew");
                 Shoot();
             }
             else if (currentAmmo == 0)
@@ -46,6 +53,7 @@ public class PistolScript : GenericGun
             {
                 currentAmmo = pistol.BaseAmmo;
                 GetComponent<WeaponAnimationScript>().curAmmo = currentAmmo;
+               
                 // ammo.text = currentAmmo + "/" + pistol.BaseAmmo;
             }
             else if (currentAmmo == pistol.BaseAmmo)
@@ -59,21 +67,51 @@ public class PistolScript : GenericGun
     {
         RaycastHit hit;
 
-        if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
+        shoot_part.Play();
+        
+        FindObjectOfType<AudioManager>().Play("PistolShot");
+
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
             if(hit.transform.tag == "Slime")
             {
+                Instantiate(hit_slime, hit.point + hit.normal * 0.01f, Quaternion.FromToRotation(Vector3.forward, -cam.transform.forward));
+
                 SlimeScript slime = hit.transform.GetComponent<SlimeScript>();
                 
                 slime.Hit(pistol.Damage);
             }
             else if (hit.transform.tag == "SlimeHead")
             {
+                Instantiate(hit_slime, hit.point + hit.normal * 0.01f, Quaternion.FromToRotation(Vector3.forward, -cam.transform.forward));
+
                 SlimeScript slime = hit.transform.gameObject.GetComponentInParent<SlimeScript>();
                              
                 slime.crit(pistol.Damage);
             }
-            
+            else if (hit.transform.tag == "Tree")
+            {
+                Instantiate(hit_tree, hit.point + hit.normal * 0.01f, Quaternion.FromToRotation(Vector3.forward, -cam.transform.forward));
+            }
+            else if (hit.transform.tag == "Stone") 
+            {
+                Instantiate(hit_stone, hit.point + hit.normal * 0.01f, Quaternion.FromToRotation(Vector3.forward, -cam.transform.forward));
+            }
+            else if (hit.transform.tag == "Metal")
+            {
+                Instantiate(hit_metal, hit.point + hit.normal * 0.01f, Quaternion.FromToRotation(Vector3.forward, -cam.transform.forward));
+            }
+            else if (hit.transform.tag == "Earth")
+            {
+                Instantiate(hit_earth, hit.point + hit.normal * 0.01f, Quaternion.FromToRotation(Vector3.forward, -cam.transform.forward));
+            }
+
+
+
+
+
         }
     }
 }
+
+

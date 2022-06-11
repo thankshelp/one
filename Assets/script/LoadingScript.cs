@@ -16,7 +16,9 @@ public class LoadingScript : MonoBehaviour
 
    private IEnumerator LoadLevel()
     {
+
         AsyncOperation asyncload = SceneManager.LoadSceneAsync(2);
+        FindObjectOfType<MusicManager>().Play("Game");
 
         while (!asyncload.isDone)
         {
