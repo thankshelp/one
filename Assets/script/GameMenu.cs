@@ -21,6 +21,7 @@ public class GameMenu : MonoBehaviour
     }
 
     public GameObject menu;
+    public GameObject GameInerface;
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +29,7 @@ public class GameMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Time.timeScale = 0f;
+            GameInerface.SetActive(false);
             menu.SetActive(true);
             Look.cursorLock = false;
         }
@@ -42,6 +44,7 @@ public class GameMenu : MonoBehaviour
     {
         AM.Play("Click");
         Time.timeScale = 1f;
+        GameInerface.SetActive(true);
         menu.SetActive(false);
         Look.cursorLock = true;
     }
@@ -57,6 +60,15 @@ public class GameMenu : MonoBehaviour
         menuOff.SetActive(false);
     }
 
+    public void NewGame()
+    {
+        
+        GlobalStatistic.EnemyCount = 0;
+        Time.timeScale = 1f;
+        Look.cursorLock = true;
+        SceneManager.LoadScene(2);
+    }
+
     public void ExitGame()
     {
         AM.Play("Click");
@@ -64,7 +76,6 @@ public class GameMenu : MonoBehaviour
         FindObjectOfType<MusicManager>().Stop("Game");
         SceneManager.LoadScene(0);
     }
-
     public void MusicVolume()
     {
         MM.Changed(mV);

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Look : MonoBehaviour
 {
     public static bool cursorLock = true;
-    public GameObject menu;
+    //public GameObject menu;
 
     public Transform player;
     public Transform cam;

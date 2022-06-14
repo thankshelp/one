@@ -11,6 +11,9 @@ public class PlayerManager : MonoBehaviour
     public static bool GameOver;
     public Slider PlayerHealthSlider;
 
+
+    public GameObject DeathScrene;
+    public GameObject GameScrene;
     void Start()
     {
         PlayerHealth = 100;
@@ -24,8 +27,10 @@ public class PlayerManager : MonoBehaviour
 
         if (GameOver)
         {
-            SceneManager.LoadScene("rooms");
-            GlobalStatistic.EnemyCount = 0;
+            Time.timeScale = 0f;
+            DeathScrene.SetActive(true);
+            GameScrene.SetActive(false);
+            Look.cursorLock = false;
         }
     }
 

@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     public Sound[] sounds;
     public static AudioManager instance;
 
-    public Slider volume_sound;
+    //public Slider volume_sound;
 
     private void Awake()
     {
