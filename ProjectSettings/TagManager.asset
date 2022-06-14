@@ -5,6 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shootable
+  - Slime
+  - Tree
+  - Stone
+  - Earth
+  - Metal
+  - SlimeHead
+  - Sword
+  - Pistol
+  - Shotgun
+  - Door
   layers:
   - Default
   - TransparentFX
@@ -18,7 +28,7 @@ TagManager:
   - Ground
   - Postprocessing
   - 
-  - 
+  - Gun
   - 
   - 
   - 

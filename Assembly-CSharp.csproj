@@ -74,9 +74,9 @@
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
-    <Compile Include="Assets\DieBehavior.cs" />
     <Compile Include="Assets\script\PlayerScripts\Look.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\script\RoomScripts\RoomTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Shared\Scripts\AdjustTimeScale.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -84,6 +84,7 @@
     <Compile Include="Assets\script\PlayerScripts\Weapon\ShotgunScript.cs" />
     <Compile Include="Assets\script\RoomScripts\roomPlacer.cs" />
     <Compile Include="Assets\script\DamageScript.cs" />
+    <Compile Include="Assets\script\GameMenu.cs" />
     <Compile Include="Assets\script\PlayerScripts\Weapon\WeaponSwitch.cs" />
     <Compile Include="Assets\Shared\Ramps\Runtime\RampAsset.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -121,13 +122,14 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\EnemyAnimation\AttackBehaivor.cs" />
-    <Compile Include="Assets\script\RoomScripts\DoorScript.cs" />
     <Compile Include="Assets\script\menuSettingsScript.cs" />
+    <Compile Include="Assets\script\ButtonEnter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\script\Sound.cs" />
-    <Compile Include="Assets\script\GameMenu.cs" />
+    <Compile Include="Assets\DieBehaviour.cs" />
+    <Compile Include="Assets\EnemyAnimation\DieBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -780,6 +782,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{122EB6E7-A44B-A0E5-35DE-2C96F6434AB7}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{992708D0-4FD5-BE34-D50A-2B329CDF5D77}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

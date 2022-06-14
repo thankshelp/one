@@ -5,14 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class UIScript : MonoBehaviour
 {
+    MusicManager MM;
+    AudioManager AM;
+
     private void Start()
     {
-        FindObjectOfType<MusicManager>().Play("Menu");
+        MM = FindObjectOfType<MusicManager>();
+        AM = FindObjectOfType<AudioManager>();
+        MM.Play("Menu");
     }
 
     // Start is called before the first frame update
     public void menuStart()
     {
+
+        AM.Play("Click");
         SceneManager.LoadScene(1);
         FindObjectOfType<MusicManager>().Stop("Menu");
     }
@@ -20,6 +27,7 @@ public class UIScript : MonoBehaviour
     // Update is called once per frame
     public void menuExit()
     {
+        AM.Play("Click");
         Application.Quit();
     }
 
@@ -31,7 +39,8 @@ public class UIScript : MonoBehaviour
     }
     public void menuSettings(GameObject settingsCanvas)
     {
-       // menuCanvas.SetActive(false);
+        // menuCanvas.SetActive(false);
+        AM.Play("Click");
         settingsCanvas.SetActive(true);
     }
 }

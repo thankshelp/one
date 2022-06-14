@@ -39,12 +39,13 @@ public class SlimeScript : MonoBehaviour
 
         FindObjectOfType<AudioManager>().Play("SlimeHit");
 
-        Debug.Log(SlimeHealth);
+        //Debug.Log(SlimeHealth);
 
-        if (SlimeHealth <= 0)
+        if (SlimeHealth <= 0 && death == false)
         {
             death = true;
             GlobalStatistic.EnemyCount--;
+            
         }
     }
 
@@ -55,11 +56,12 @@ public class SlimeScript : MonoBehaviour
 
         FindObjectOfType<AudioManager>().Play("SlimeHit");
 
-        Debug.Log(SlimeHealth);
+        //Debug.Log(SlimeHealth);
 
-        if (SlimeHealth <= 0)
+        if (SlimeHealth <= 0 && death == false)
         {
             death = true;
+            GlobalStatistic.EnemyCount--;
         }
     }
 

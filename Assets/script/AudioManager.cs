@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;
     public static AudioManager instance;
-   
+
     public Slider volume_sound;
 
     private void Awake()
@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        foreach(Sound s in sounds)
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -39,11 +39,11 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void Changed()
+    public void Changed(Slider volume_Sounds)
     {
         foreach (Sound s in sounds)
         {
-            s.source.volume = volume_sound.value;
+            s.source.volume = volume_Sounds.value;
         }
 
     }
@@ -55,3 +55,4 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 }
+   

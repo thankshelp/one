@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class roomPlacer : MonoBehaviour
 {
@@ -10,10 +11,11 @@ public class roomPlacer : MonoBehaviour
     public Room StartRoom;
     public Room BossRoom;
 
-    private Room[,] spawnedRooms;
+    public Room[,] spawnedRooms;
     Room newRoom;
     int roomCount;
 
+    public bool floor = false;
     //private List<Room> spawndRooms = new List<Room>();
 
     private IEnumerator Start()
@@ -27,20 +29,10 @@ public class roomPlacer : MonoBehaviour
             
             yield return new WaitForSecondsRealtime(0.5f);
         }
+
+        GetComponent<NavMeshSurface>().BuildNavMesh();
+        floor = true;
     }
-
-    //private void Update()
-    //{
-    //    if (GlobalStatistic.EnemyCount == 0)
-    //    {
-    //        if(roomCount > 0)
-    //        {
-    //            PlaceOneRoom();
-    //            roomCount--;
-    //        }
-    //    }
-    //}
-
 
     void PlaceOneRoom()
     {
@@ -108,25 +100,25 @@ public class roomPlacer : MonoBehaviour
 
         if(selectedDirection == Vector2Int.up)
         {
-            room.doorU.SetActive(false);
+            room.doorU.AddComponent<DoorLock>();
             selectedRoom.doorD.SetActive(false);
         }
 
         if (selectedDirection == Vector2Int.down)
         {
-            room.doorD.SetActive(false);
+            room.doorD.AddComponent<DoorLock>();
             selectedRoom.doorU.SetActive(false);
         }
 
         if (selectedDirection == Vector2Int.right)
         {
-            room.doorR.SetActive(false);
+            room.doorR.AddComponent<DoorLock>(); 
             selectedRoom.doorL.SetActive(false);
         }
 
         if (selectedDirection == Vector2Int.left)
         {
-            room.doorL.SetActive(false);
+            room.doorL.AddComponent<DoorLock>();
             selectedRoom.doorR.SetActive(false);
         }
 

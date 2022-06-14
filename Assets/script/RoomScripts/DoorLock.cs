@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class DoorLock : MonoBehaviour
 {
-    public bool isLock;
-}
+    public bool isLock = true;
+} 

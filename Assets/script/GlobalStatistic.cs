@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class GlobalStatistic
 {
-    public static int EnemyCount=1;
+    public static int EnemyCount;
 }

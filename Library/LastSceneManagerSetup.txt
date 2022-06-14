@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/LowPolyDungeonsLite/Scenes/rooms.unity
+- path: Assets/LowPolyDungeonsLite/Scenes/Menu.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

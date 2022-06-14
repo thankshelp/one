@@ -75,6 +75,8 @@ public class ShotgunScript : GenericGun
 
     void Shoot()
     {
+      
+
         for(int rey_count = 9; rey_count>= 0; rey_count--)
         {
 
@@ -97,8 +99,6 @@ public class ShotgunScript : GenericGun
            
 
             Vector3 fwd = FirePoint.transform.TransformDirection(Vector3.forward);
-
-            Debug.Log("pew");
 
             //Vector3 fwd; //= FirePoint.transform.position;
 
@@ -125,6 +125,8 @@ public class ShotgunScript : GenericGun
                     SlimeScript slime = hit.transform.GetComponent<SlimeScript>();
 
                     slime.Hit(shotgun.Damage);
+                   
+                   
                 }
                 else if (hit.transform.tag == "SlimeHead")
                 {
@@ -155,5 +157,7 @@ public class ShotgunScript : GenericGun
             }
         }
         
+
+
     }
 }

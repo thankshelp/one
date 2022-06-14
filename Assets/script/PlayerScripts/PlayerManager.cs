@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
     public static float PlayerHealth;
     public static bool GameOver;
-    public TextMeshProUGUI PlayerHealthText;
+    public Slider PlayerHealthSlider;
 
     void Start()
     {
@@ -19,11 +20,12 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerHealthText.text = "" + PlayerHealth;
+        PlayerHealthSlider.value = PlayerHealth/100;
 
         if (GameOver)
         {
             SceneManager.LoadScene("rooms");
+            GlobalStatistic.EnemyCount = 0;
         }
     }
 

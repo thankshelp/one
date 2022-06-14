@@ -9,7 +9,8 @@ public class MusicManager : MonoBehaviour
     public Music[] musics;
     public static MusicManager instance;
 
-    public Slider volume_music;
+    public float s;
+    public Slider Sens_Slider;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -38,7 +39,7 @@ public class MusicManager : MonoBehaviour
         m.source.Play();
     }
 
-    public void Changed()
+    public void Changed(Slider volume_music)
     {
         foreach (Music m in musics)
         {
@@ -52,5 +53,10 @@ public class MusicManager : MonoBehaviour
         Music m = Array.Find(musics, music => music.name == name);
         if (m == null) { Debug.LogWarning("Sound: " + name + " not found"); return; }
         m.source.Stop();
+    }
+
+    public void SenseChenged()
+    {
+        s = Sens_Slider.value;
     }
 }

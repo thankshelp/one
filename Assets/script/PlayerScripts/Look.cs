@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Look : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Look : MonoBehaviour
     [Range(50f, 200f)]
     public float ySens = 70f;
     //public float maxAngle;
-
+    public Slider sensSlider;
     
 
     Quaternion Center;
@@ -23,6 +24,8 @@ public class Look : MonoBehaviour
     void Start()
     {
         Center = cam.localRotation;
+        xSens = ySens = FindObjectOfType<MusicManager>().s * 150 + 50;
+        sensSlider.value = FindObjectOfType<MusicManager>().s;
     }
 
     // Update is called once per frame
@@ -47,6 +50,15 @@ public class Look : MonoBehaviour
         setX();
 
     }
+
+    public void sensChenged()
+    {
+        xSens = sensSlider.value * 150 + 50;
+        ySens = sensSlider.value * 150 + 50;
+
+        FindObjectOfType<MusicManager>().s = sensSlider.value;
+    }
+
     void setY()
     {
         float mouseY = Input.GetAxis("Mouse Y") * ySens * Time.deltaTime;
